@@ -13,14 +13,12 @@ class CounterOpenBox implements IOpenBox {
   @override
   Future<Box<CounterHiveModel>> makeOpen() async =>
     Hive.openBox<CounterHiveModel>(IKey.counterKey);
-  
 }
 
 class SettingOpenBox implements IOpenBox {
   @override
   Future<Box<SettingHiveModel>> makeOpen() async =>
     Hive.openBox<SettingHiveModel>(IKey.settingKey);
-  
 }
 
 abstract class IOpenBoxFactory {

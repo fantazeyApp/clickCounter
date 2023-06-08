@@ -1,5 +1,8 @@
-import 'package:click_counter/setting.dart';
+import 'package:click_counter/core/constants/constants.dart';
+import 'package:click_counter/view/setting.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/launch_url.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -26,38 +29,30 @@ class DrawerWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               )),
-          const ListTile(
-            leading: Icon(Icons.thumb_up, color: Color(0xFF00B0F0)),
-            title: Text('Rate app'),
-            /* onTap: () {
-              final gp = GooglePlay();
-              gp.openURL();
-            }, */
-          ),
-          const ListTile(
-            leading: Icon(Icons.share, color: Color(0xFF00B0F0)),
-            title: Text('Share'),
-            /* onTap: () async {
-              const googlePlayStore = AppConst.urlPlayGoogle;
-              await Share.share(googlePlayStore);
-            }, */
-          ),
-          const ListTile(
-            leading: Icon(Icons.privacy_tip, color: Color(0xFF00B0F0)),
-            title: Text('Privacy'),
-            /* onTap: () {
-              final pp = PrivacyPolicy();
-              pp.openURL();
-            }, */
-          ),
-          const Divider(),
           ListTile(
             leading: const Icon(Icons.settings, color: Color(0xFF00B0F0)),
-            title: Text(appbarTitle),
-            onTap: () async{
-             await Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const SettingPage())).then((value) => 
-                  Scaffold.of(context).openEndDrawer());
+            title: const Text('Настройки'),
+            onTap: () async {
+              await Navigator.of(context)
+                  .push(MaterialPageRoute(
+                      builder: (context) => const SettingPage()))
+                  .then((value) => Scaffold.of(context).openEndDrawer());
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.thumb_up, color: Color(0xFF00B0F0)),
+            title: const Text('Rate app'),
+            onTap: () {
+              const googlePlay = LaunchUrl();
+              googlePlay.openURL(AppConstants.rateApp);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.privacy_tip, color: Color(0xFF00B0F0)),
+            title: const Text('Privacy'),
+            onTap: () {
+              const prPolicy = LaunchUrl();
+              prPolicy.openURL(AppConstants.privacy);
             },
           ),
         ],

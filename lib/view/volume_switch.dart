@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:click_counter/view/widget/switcher_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -13,6 +14,9 @@ class VolumeSwitch extends StatefulWidget {
 }
 
 class _VolumeSwitchState extends State<VolumeSwitch> {
+  late SnackBar snackBar;
+  Timer? _debounce;
+
   @override
   void didChangeDependencies() {
     Box box = Hive.box(IKey.settingKey);
@@ -21,14 +25,25 @@ class _VolumeSwitchState extends State<VolumeSwitch> {
     super.didChangeDependencies();
   }
 
-  void volumeCalled(bool isVolumeState) {
-    setState(() {
-      SwitchProvider.of(context)!.model.isVolume = isVolumeState;
+  Future<void> snackBarShow() async {
+    if (_debounce?.isActive ?? false) _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     });
+  }
+
+  void volumeCalled(bool isVolumeState) {
+    if (mounted) {
+      setState(() {
+        SwitchProvider.of(context)!.model.isVolume = isVolumeState;
+      });
+    }
+
     boxCall(
       key: IKey.volume,
       value: SwitchProvider.of(context)!.model.isVolume,
     );
+    snackBarShow();
   }
 
   void boxCall({required String key, required bool value}) {
@@ -37,7 +52,20 @@ class _VolumeSwitchState extends State<VolumeSwitch> {
   }
 
   @override
+  void dispose() {
+    _debounce?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    snackBar = SnackBar(
+      content: SwitchProvider.of(context)!.model.isVolume
+          ? const Text('Sounds on')
+          : const Text('Sounds off'),
+      action: SnackBarAction(label: 'Undo', onPressed: () {}),
+    );
+
     return SwitchListTile(
       title: const TitleSwitch(title: 'Включить звуки'),
       subtitle: const SubTitle(

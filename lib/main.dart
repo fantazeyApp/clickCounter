@@ -1,12 +1,10 @@
 import 'package:click_counter/core/constants/ikey.dart';
-import 'package:click_counter/counter_view.dart';
 import 'package:click_counter/model/hive_register.dart';
-import 'package:click_counter/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
 import 'core/theme_data.dart';
-import 'counter_list.dart';
+import 'view/counter_list.dart';
 import 'logic/switch_provider.dart';
 import 'model/hive_openbox.dart';
 import 'model/run_app.dart';
@@ -24,7 +22,6 @@ void main() async {
   await Hive.openBox(IKey.settingKey);
   /* Hive.deleteBoxFromDisk(IKey.counterKey);
   Hive.deleteBoxFromDisk(IKey.settingKey); */
-
   late MainSetup appFactory;
   appFactory = MainSetup(const AppFactory());
   final app = appFactory.makeApp();

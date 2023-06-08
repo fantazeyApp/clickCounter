@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../counter_dialog.dart';
+import '../counter_dialog.dart';
 import '../../model/counter_hive_model.dart';
 
 class BuildAddButton extends StatelessWidget {

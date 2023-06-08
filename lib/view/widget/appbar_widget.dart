@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../core/constants/constants.dart';
 
 class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -12,7 +11,7 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: const Text('Counters'),
       centerTitle: true,
-      actions: <Widget>[
+      /* actions: <Widget>[
         PopupMenuButton<int>(
           elevation: 10,
           icon: const Icon(
@@ -38,11 +37,10 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
         ),
-      ],
+      ], */
     );
   }
-  
+
   @override
-  // TODO: implement preferredSize
- Size get preferredSize => const Size.fromHeight(kAppbarHeight);
+  Size get preferredSize => const Size.fromHeight(AppConstants.kAppbarHeight);
 }

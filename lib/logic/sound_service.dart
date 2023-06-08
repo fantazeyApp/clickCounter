@@ -10,12 +10,12 @@ class SoundService {
   Future init() async {
     pool = Soundpool.fromOptions();
     soundId = await rootBundle
-        .load('assets/sounds/click_button.mp3') //your sound file name here
+        .load('assets/sounds/click_button.mp3')
         .then((ByteData soundData) {
       return pool!.load(soundData);
     });
     soundId2 = await rootBundle
-        .load('assets/sounds/click_button.mp3') //your sound file name here
+        .load('assets/sounds/click_button.mp3')
         .then((ByteData soundData) {
       return pool!.load(soundData);
     });

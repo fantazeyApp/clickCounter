@@ -19,7 +19,7 @@ final kDefaultTheme = ThemeData(
       style: TextButton.styleFrom(
         foregroundColor: Colors.black87,
         backgroundColor: Colors.white,
-        textStyle:const TextStyle(fontSize: 18)
+        textStyle:const TextStyle(fontSize: 16)
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(

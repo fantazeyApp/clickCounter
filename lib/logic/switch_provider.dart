@@ -34,22 +34,6 @@ class SwitchModel extends ChangeNotifier with EquatableMixin {
 
   @override
   List<Object?> get props => [isVolume, isScreenOn, isVibrate, date];
-
-/*   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is SwitchModel &&
-        other.isVolume == isVolume &&
-        other.isWakeLock == isWakeLock;
-  }
-
-  @override
-  int get hashCode => Object.hash(_isVolume, _isWakeLock); //isVolume.hashCode;
-
-  @override
-  String toString() {
-    return 'Bool isVolume: $isVolume. Bool isWakeLock: $isWakeLock';
-  } */
 }
 
 class SwitchProvider extends InheritedWidget {

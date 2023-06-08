@@ -7,7 +7,7 @@ class BuildComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: 2,
+      maxLines: 3,
       controller: controller,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),

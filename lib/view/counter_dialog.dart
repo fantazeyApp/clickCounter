@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:click_counter/core/sizedbox.dart';
 
-import 'model/counter_hive_model.dart';
+import '../model/counter_hive_model.dart';
 
 final formKey = GlobalKey<FormState>();
 
@@ -38,7 +38,6 @@ class _CounterDialogState extends State<CounterDialog> {
 
   @override
   void initState() {
-    // TODO: implement initState
     if (widget.counterModel != null) {
       final counterModel = widget.counterModel;
       nameController.text = counterModel!.title;
@@ -63,44 +62,46 @@ class _CounterDialogState extends State<CounterDialog> {
     final isEditing = widget.counterModel != null;
     final title = isEditing ? 'Edit counter' : 'Add counter';
 
-    return AlertDialog(
-      insetPadding: EdgeInsets.zero,
-      backgroundColor: const Color(0xFFCDF0FC),
-      title: Text(title),
-      titleTextStyle: const TextStyle(fontSize: 24, color: Colors.black),
-      content: Form(
-          key: formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                10.ph,
-                BuildName(controller: nameController),
-                10.ph,
-                BuildCount(
-                  controller: countController,
-                ),
-                10.ph,
-                BuildTotalCount(
-                  controller: totalController,
-                ),
-                10.ph,
-                BuildComment(
-                  controller: commentController,
-                ),
-              ],
-            ),
-          )),
-      actions: <Widget>[
-        const BuildCancelButton(),
-        BuildAddButton(
-            controller1: nameController,
-            controller2: countController,
-            controller3: totalController,
-            controller4: commentController,
-            func: widget.onClickedDone,
-            counterModel: widget.counterModel),
-      ],
+    return SafeArea(
+      child: AlertDialog(
+        insetPadding: EdgeInsets.zero,
+        backgroundColor: const Color(0xFFCDF0FC),
+        title: Text(title),
+        titleTextStyle: const TextStyle(fontSize: 24, color: Colors.black),
+        content: Form(
+            key: formKey,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  10.ph,
+                  BuildName(controller: nameController),
+                  10.ph,
+                  BuildCount(
+                    controller: countController,
+                  ),
+                  10.ph,
+                  BuildTotalCount(
+                    controller: totalController,
+                  ),
+                  10.ph,
+                  BuildComment(
+                    controller: commentController,
+                  ),
+                ],
+              ),
+            )),
+        actions: <Widget>[
+          const BuildCancelButton(),
+          BuildAddButton(
+              controller1: nameController,
+              controller2: countController,
+              controller3: totalController,
+              controller4: commentController,
+              func: widget.onClickedDone,
+              counterModel: widget.counterModel),
+        ],
+      ),
     );
   }
 }
