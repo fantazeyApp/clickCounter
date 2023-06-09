@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class BuildName extends StatelessWidget {
   const BuildName({super.key, required this.controller});
   final TextEditingController controller;
@@ -9,12 +11,13 @@ class BuildName extends StatelessWidget {
     return TextFormField(
       // style: const TextStyle(fontSize: 24),
       controller: controller,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        hintText: 'Enter Name',
-        labelText: 'Counter name',
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        hintText: S.of(context).name_hintText,
+        labelText: S.of(context).name_labelText,
       ),
-      validator: (name) => name != null && name.isEmpty ? 'Enter a name' : null,
+      validator: (name) =>
+          name != null && name.isEmpty ? S.of(context).name_validator : null,
     );
   }
 }

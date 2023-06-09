@@ -1,5 +1,6 @@
 import 'package:click_counter/core/sizedbox.dart';
 import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
 import '../counter_dialog.dart';
 import '../counter_view.dart';
 import '../../model/counter_hive_model.dart';
@@ -19,7 +20,7 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
             icon: const Icon(Icons.open_in_new),
-            label: const Text('Open'),
+            label: Text(S.of(context).btn_open_title),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CounterView(
                     counterModel: model,
@@ -30,7 +31,7 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
             icon: const Icon(Icons.edit),
-            label: const Text('Edit'),
+            label: Text(S.of(context).btn_edit_title),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => SingleChildScrollView(
                       child: CounterDialog(
@@ -43,21 +44,20 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: const Text('Delete'),
+                  label: Text(S.of(context).btn_delete_title),
                   onPressed: () {
                     showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
                             backgroundColor: const Color(0xFFCDF0FC),
-                            title: const Text('Confirm'),
-                            content: const Text(
-                                'Are you sure you want to delete this counter?'),
+                            title: Text(S.of(context).alert_dialog_title),
+                            content: Text(S.of(context).alert_dialog_content),
                             actions: <Widget>[
                               TextButton(
                                   onPressed: () =>
                                       Navigator.of(context).pop(false),
-                                  child: const Text('Cansel')),
+                                  child:  Text(S.of(context).cansel_navigator)),
                               TextButton(
                                   style: ButtonStyle(
                                       foregroundColor:
@@ -67,7 +67,7 @@ class BuildButtons extends StatelessWidget {
                                     Navigator.of(context).pop(true);
                                     deleteCounter(model);
                                   },
-                                  child: const Text('Ok')),
+                                  child:  Text(S.of(context).ok_navigator)),
                             ],
                           );
                         });

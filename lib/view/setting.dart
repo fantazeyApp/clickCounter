@@ -4,6 +4,8 @@ import 'package:click_counter/view/vibration_switch.dart';
 import 'package:click_counter/view/volume_switch.dart';
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
+
 class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
@@ -11,13 +13,13 @@ class SettingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Настройки'),
+        title: Text(S.of(context).settingpage_appbar_title),
       ),
       body: Column(
         children: [
           const VolumeSwitch(),
           10.ph,
-          const KeepScreenOn(),
+          const KeepScreenOnOff(),
           10.ph,
           const VibrationSwitch(),
         ],

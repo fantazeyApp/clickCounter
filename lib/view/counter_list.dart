@@ -7,6 +7,8 @@ import 'package:click_counter/view/widget/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
+import '../generated/l10n.dart';
+
 class CounterList extends StatefulWidget {
   const CounterList({super.key});
 
@@ -15,51 +17,14 @@ class CounterList extends StatefulWidget {
 }
 
 class _CounterListState extends State<CounterList> {
- 
-  /* late SoundService sound;
-  bool? isSound, vibrateOn; */
-  //String? dateCreation;
-
-  /* @override
-  void initState() {
-    sound = SoundService();
-    super.initState();
-  } */
-
-/*   @override
-  void didChangeDependencies() {
-    SwitchProvider.of(context)?.model.addListener(() async {
-      isSound = SwitchProvider.of(context)?.model.isVolume;
-      vibrateOn = SwitchProvider.of(context)?.model.isVibrate;
-    });
-    setState(() {});
-    super.didChangeDependencies();
-  } */
-
   @override
   void dispose() {
     Hive.close();
     super.dispose();
   }
 
-  /* void vibrate() {
-    if (vibrateOn == true) {
-      HapticFeedback.heavyImpact();
-    } else {
-      null;
-    }
-  } */
-
   @override
   Widget build(BuildContext context) {
-    /* Box box = Hive.box(IKey.settingKey);
-    var isVolume = SwitchProvider.of(context)?.model.isVolume;
-    var isVibrate = SwitchProvider.of(context)?.model.isVibrate;
-    isVolume = box.get(IKey.volume, defaultValue: false);
-    isVibrate = box.get(IKey.vibrate, defaultValue: false);
-    isSound = isVolume;
-    vibrateOn = isVibrate; */
-
     Future addCounter(
         String name, int number, int total, String comment, String date) async {
       final counterModel = CounterHiveModel()
@@ -76,7 +41,7 @@ class _CounterListState extends State<CounterList> {
       backgroundColor: const Color(0xFF00B0F0),
       resizeToAvoidBottomInset: false,
       appBar: const AppbarWidget(),
-      drawer:const DrawerWidget(appbarTitle: 'Настройки'),
+      drawer: const DrawerWidget(appbarTitle: 'Настройки'),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -91,7 +56,7 @@ class _CounterListState extends State<CounterList> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFFCDF0FC),
         foregroundColor: Colors.black,
-        tooltip: 'Create a new counter',
+        tooltip: S.of(context).addbtn_tooltip,
         onPressed: () => showDialog(
             context: context,
             builder: (context) => SingleChildScrollView(

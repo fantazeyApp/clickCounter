@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../generated/l10n.dart';
 import '../counter_dialog.dart';
 import '../../model/counter_hive_model.dart';
 
@@ -31,7 +32,7 @@ class BuildAddButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isEdit = counterModel != null;
-    final text = isEdit ? 'Save' : 'Add';
+    final text = isEdit ? S.of(context).isedit_save : S.of(context).isedit_add;
     return TextButton(
       child: Text(text),
       onPressed: () async {

@@ -5,6 +5,7 @@ import 'package:click_counter/logic/sound_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
+import '../generated/l10n.dart';
 import '../logic/switch_provider.dart';
 import '../model/counter_hive_model.dart';
 
@@ -151,14 +152,9 @@ class _CounterViewState extends State<CounterView> {
                 child: Column(
                   children: [
                     Text(
-                      'Total number of clicks: $counterTotal',
+                      '${S.of(context).prefixtxt_countertotal}: $counterTotal',
                       style: const TextStyle(fontSize: 20),
                     ),
-                    /* 8.ph,
-                    Text(
-                      '$counterComment',
-                      style: const TextStyle(fontSize: 20),
-                    ) */
                   ],
                 ),
               ),

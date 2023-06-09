@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../generated/l10n.dart';
 import '../../model/counter_hive_model.dart';
 import 'buildcounter.dart';
 
@@ -10,9 +11,17 @@ class BuildContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (list.isEmpty) {
-      return const Center(
-        child: Text('Create a counter, click the button at the bottom right',
-            style: TextStyle(fontSize: 24)),
+      return Center(
+        child: DecoratedBox(
+          decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
+              color: Colors.white),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(S.of(context).create_counter_text,
+                style: const TextStyle(fontSize: 24)),
+          ),
+        ),
       );
     } else {
       return Column(

@@ -6,16 +6,17 @@ import 'package:hive/hive.dart';
 import 'package:wakelock/wakelock.dart';
 
 import '../core/constants/ikey.dart';
+import '../generated/l10n.dart';
 import '../logic/switch_provider.dart';
 
-class KeepScreenOn extends StatefulWidget {
-  const KeepScreenOn({super.key});
+class KeepScreenOnOff extends StatefulWidget {
+  const KeepScreenOnOff({super.key});
 
   @override
-  State<KeepScreenOn> createState() => _KeepScreenOnState();
+  State<KeepScreenOnOff> createState() => _KeepScreenOnOffState();
 }
 
-class _KeepScreenOnState extends State<KeepScreenOn> {
+class _KeepScreenOnOffState extends State<KeepScreenOnOff> {
   late SnackBar snackBar;
   Timer? _debounce;
 
@@ -67,13 +68,13 @@ class _KeepScreenOnState extends State<KeepScreenOn> {
   Widget build(BuildContext context) {
     snackBar = SnackBar(
       content: SwitchProvider.of(context)!.model.isScreenOn
-          ? const Text('Screen on')
-          : const Text('Screen off'),
-      action: SnackBarAction(label: 'Undo', onPressed: () {}),
+          ? Text(S.of(context).snackbar_screen_on)
+          : Text(S.of(context).snackbar_screen_off),
+      action: SnackBarAction(label: S.of(context).undo, onPressed: () {}),
     );
     return SwitchListTile(
-      title: const TitleSwitch(title: 'Не выключать экран'),
-      subtitle: const SubTitle(subtitle: 'Держать экран в активном состоянии'),
+      title: TitleSwitch(title: S.of(context).screen_title),
+      subtitle: SubTitle(subtitle: S.of(context).screen_subtitle),
       value: SwitchProvider.of(context)!.model.isScreenOn,
       onChanged: (value) => screenOnCalled(value),
       secondary: SwitchProvider.of(context)!.model.isScreenOn == true

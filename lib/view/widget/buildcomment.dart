@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class BuildComment extends StatelessWidget {
   const BuildComment({super.key, required this.controller});
   final TextEditingController controller;
@@ -9,14 +11,13 @@ class BuildComment extends StatelessWidget {
     return TextFormField(
       maxLines: 3,
       controller: controller,
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        hintText: 'Write a comment for this counter',
-        labelText: 'Comments',
-        labelStyle:TextStyle(fontSize: 24)
-      ),
+      decoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          hintText: S.of(context).comment_hinttext,
+          labelText: S.of(context).comment_labeltext,
+          labelStyle: const TextStyle(fontSize: 24)),
       validator: (comment) => comment != null && comment.isEmpty
-          ? 'Write a comment for this counter'
+          ? S.of(context).comment_validator
           : null,
     );
   }

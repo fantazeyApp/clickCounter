@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class BuildCancelButton extends StatelessWidget {
   const BuildCancelButton({super.key});
 
@@ -7,6 +9,6 @@ class BuildCancelButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () => Navigator.of(context).pop(),
-        child: const Text('Cansel'));
+        child: Text(S.of(context).cansel_navigator));
   }
 }

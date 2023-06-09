@@ -2,8 +2,10 @@ import 'package:click_counter/core/constants/ikey.dart';
 import 'package:click_counter/model/hive_register.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'core/theme_data.dart';
+import 'generated/l10n.dart';
 import 'view/counter_list.dart';
 import 'logic/switch_provider.dart';
 import 'model/hive_openbox.dart';
@@ -42,8 +44,15 @@ class _AppState extends State<App> {
     return SwitchProvider(
       model: _model,
       child: MaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
         debugShowCheckedModeBanner: false,
-        title: 'Click Counter App',
+        onGenerateTitle: (BuildContext context) => S.of(context).main_title,
         theme: kDefaultTheme,
         home: const CounterList(),
       ),

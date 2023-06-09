@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../core/constants/ikey.dart';
+import '../generated/l10n.dart';
 import '../logic/switch_provider.dart';
 
 class VibrationSwitch extends StatefulWidget {
@@ -59,15 +60,13 @@ class _VibrationSwitchState extends State<VibrationSwitch> {
   Widget build(BuildContext context) {
     snackBar2 = SnackBar(
       content: SwitchProvider.of(context)!.model.isVibrate
-          ? const Text('Vibration on')
-          : const Text('Vibration off'),
+          ? Text(S.of(context).snackbar_vibration_on)
+          : Text(S.of(context).snackbar_vibration_off),
       action: SnackBarAction(label: 'Undo', onPressed: () {}),
     );
     return SwitchListTile(
-      title: const TitleSwitch(title: 'Включить вибрацию'),
-      subtitle: const SubTitle(
-          subtitle:
-              'To enable it: Go to settings > sound&vibration > touch vibration'),
+      title: TitleSwitch(title: S.of(context).vibration_title),
+      subtitle: SubTitle(subtitle: S.of(context).vibration_subtitle),
       value: SwitchProvider.of(context)!.model.isVibrate,
       onChanged: (value) async {
         if (mounted) {

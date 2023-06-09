@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../core/constants/ikey.dart';
+import '../generated/l10n.dart';
 import '../logic/switch_provider.dart';
 
 class VolumeSwitch extends StatefulWidget {
@@ -61,15 +62,14 @@ class _VolumeSwitchState extends State<VolumeSwitch> {
   Widget build(BuildContext context) {
     snackBar = SnackBar(
       content: SwitchProvider.of(context)!.model.isVolume
-          ? const Text('Sounds on')
-          : const Text('Sounds off'),
-      action: SnackBarAction(label: 'Undo', onPressed: () {}),
+          ? Text(S.of(context).snackbar_volume_on)
+          : Text(S.of(context).snackbar_volume_off),
+      action: SnackBarAction(label: S.of(context).undo, onPressed: () {}),
     );
 
     return SwitchListTile(
-      title: const TitleSwitch(title: 'Включить звуки'),
-      subtitle: const SubTitle(
-          subtitle: 'Воспроизводить звуки при изменении значений счетчика'),
+      title: TitleSwitch(title: S.of(context).volume_title),
+      subtitle: SubTitle(subtitle: S.of(context).volume_subtitle),
       onChanged: (value) => volumeCalled(value),
       value: SwitchProvider.of(context)!.model.isVolume,
       secondary: SwitchProvider.of(context)!.model.isVolume == true

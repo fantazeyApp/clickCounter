@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../generated/l10n.dart';
 import '../../model/counter_hive_model.dart';
 
 class Tabs extends StatefulWidget {
@@ -13,9 +14,10 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   List<String> items = [
-    "Total",
-    "Comment",
-    "Date",
+    S.current.tablist_items_index0,
+    S.current.tablist_items_index1,
+    S.current.tablist_items_index2,
+    
   ];
 
   int currentIndex = 0;
@@ -23,7 +25,7 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     List<Widget> itemBody = [
-      TotalScore(model: widget.modelValue),
+     TotalScore(model: widget.modelValue),
       Comment(model: widget.modelValue),
       CreationDate(model: widget.modelValue),
     ];
@@ -110,7 +112,7 @@ class TotalScore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(TextSpan(
-        text: 'Total score: ',
+        text: S.of(context).tablistwidget_itemsbody0,
         style: GoogleFonts.laila(fontSize: 18),
         children: <TextSpan>[
           TextSpan(
@@ -151,7 +153,7 @@ class CreationDate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-          text: 'Creation date:\n',
+          text: '${S.of(context).tablistwidget_itemsbody2}\n',
           style: GoogleFonts.laila(fontSize: 18),
           children: <TextSpan>[
             TextSpan(

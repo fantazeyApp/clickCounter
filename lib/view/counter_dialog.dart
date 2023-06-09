@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import 'package:click_counter/core/sizedbox.dart';
 
+import '../generated/l10n.dart';
 import '../model/counter_hive_model.dart';
 
 final formKey = GlobalKey<FormState>();
@@ -33,7 +34,8 @@ class _CounterDialogState extends State<CounterDialog> {
   final nameController = TextEditingController();
   final countController = TextEditingController(text: '0');
   final totalController = TextEditingController(text: '0');
-  final commentController = TextEditingController(text: 'Counter comment');
+  final commentController =
+      TextEditingController(text: S.current.commentController);
   late String formatted;
 
   @override
@@ -60,7 +62,9 @@ class _CounterDialogState extends State<CounterDialog> {
   @override
   Widget build(BuildContext context) {
     final isEditing = widget.counterModel != null;
-    final title = isEditing ? 'Edit counter' : 'Add counter';
+    final title = isEditing
+        ? S.of(context).isEditing_true
+        : S.of(context).isEditing_false;
 
     return SafeArea(
       child: AlertDialog(
