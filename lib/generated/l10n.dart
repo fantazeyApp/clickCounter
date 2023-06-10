@@ -140,10 +140,10 @@ class S {
     );
   }
 
-  /// `Cansel`
+  /// `Cancel`
   String get cansel_navigator {
     return Intl.message(
-      'Cansel',
+      'Cancel',
       name: 'cansel_navigator',
       desc: '',
       args: [],
@@ -310,10 +310,10 @@ class S {
     );
   }
 
-  /// `Rate app`
+  /// `Rate this app`
   String get drawer_title_rate {
     return Intl.message(
-      'Rate app',
+      'Rate this app',
       name: 'drawer_title_rate',
       desc: '',
       args: [],
@@ -577,6 +577,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ru', countryCode: 'RU'),
     ];
   }
 

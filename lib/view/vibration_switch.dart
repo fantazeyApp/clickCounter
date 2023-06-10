@@ -33,18 +33,6 @@ class _VibrationSwitchState extends State<VibrationSwitch> {
     });
   }
 
-  /* void vibrationCalled(bool isVibrateState) {
-    setState(() {
-      SwitchProvider.of(context)!.model.isVibrate = isVibrateState;
-      if (SwitchProvider.of(context)!.model.isVibrate == true) {
-        Wakelock.enable();
-      } else {
-        Wakelock.disable();
-      }
-    });
-    snackBarShow();
-  } */
-
   void boxCall({required String key, required bool value}) {
     Box box = Hive.box(IKey.settingKey);
     box.put(key, value);

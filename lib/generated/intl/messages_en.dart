@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "btn_delete_title": MessageLookupByLibrary.simpleMessage("Delete"),
         "btn_edit_title": MessageLookupByLibrary.simpleMessage("Edit"),
         "btn_open_title": MessageLookupByLibrary.simpleMessage("Open"),
-        "cansel_navigator": MessageLookupByLibrary.simpleMessage("Cansel"),
+        "cansel_navigator": MessageLookupByLibrary.simpleMessage("Cancel"),
         "commentController":
             MessageLookupByLibrary.simpleMessage("Counter comment"),
         "comment_hinttext": MessageLookupByLibrary.simpleMessage(
@@ -47,7 +47,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Create a counter, click the button at the right bottom"),
         "drawer_header": MessageLookupByLibrary.simpleMessage("Click Counter"),
         "drawer_title_privacy": MessageLookupByLibrary.simpleMessage("Privacy"),
-        "drawer_title_rate": MessageLookupByLibrary.simpleMessage("Rate app"),
+        "drawer_title_rate":
+            MessageLookupByLibrary.simpleMessage("Rate this app"),
         "drawer_title_setings":
             MessageLookupByLibrary.simpleMessage("Settings"),
         "isEditing_false": MessageLookupByLibrary.simpleMessage("Add counter"),

@@ -20,7 +20,7 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
             icon: const Icon(Icons.open_in_new),
-            label: Text(S.of(context).btn_open_title),
+            label: FittedBox(child: Text(S.of(context).btn_open_title)),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => CounterView(
                     counterModel: model,
@@ -31,7 +31,7 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
             icon: const Icon(Icons.edit),
-            label: Text(S.of(context).btn_edit_title),
+            label: FittedBox(child: Text(S.of(context).btn_edit_title)),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => SingleChildScrollView(
                       child: CounterDialog(
@@ -44,7 +44,7 @@ class BuildButtons extends StatelessWidget {
           Expanded(
               child: TextButton.icon(
                   icon: const Icon(Icons.delete),
-                  label: Text(S.of(context).btn_delete_title),
+                  label: FittedBox(child: Text(S.of(context).btn_delete_title)),
                   onPressed: () {
                     showDialog(
                         context: context,

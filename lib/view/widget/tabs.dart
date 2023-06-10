@@ -66,13 +66,18 @@ class _TabsState extends State<Tabs> {
                               : null,
                         ),
                         child: Center(
-                          child: Text(
-                            items[index],
-                            style: GoogleFonts.laila(
-                                fontWeight: FontWeight.w500,
-                                color: currentIndex == index
-                                    ? Colors.black
-                                    : Colors.black45),
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: FittedBox(
+                              child: Text(
+                                items[index],
+                                style: GoogleFonts.laila(
+                                    fontWeight: FontWeight.w500,
+                                    color: currentIndex == index
+                                        ? Colors.black
+                                        : Colors.black45),
+                              ),
+                            ),
                           ),
                         ),
                       ),

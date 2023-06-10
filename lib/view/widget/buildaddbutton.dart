@@ -25,7 +25,7 @@ class BuildAddButton extends StatelessWidget {
 
   String dateCreation() {
     final DateTime now = DateTime.now();
-    final DateFormat formatter = DateFormat('yyyy-MM-dd hh:mm');
+    final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm');
     return formatter.format(now);
   }
 
