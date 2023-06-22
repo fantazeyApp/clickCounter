@@ -28,7 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Вы уверены, что хотите удалить этот счетчик?"),
         "alert_dialog_title":
             MessageLookupByLibrary.simpleMessage("Подтвердить"),
-        "appbar_title": MessageLookupByLibrary.simpleMessage("Счетчики"),
+        "appbar_title": MessageLookupByLibrary.simpleMessage("Счетчики кликов"),
         "btn_delete_title": MessageLookupByLibrary.simpleMessage("Удалить"),
         "btn_edit_title": MessageLookupByLibrary.simpleMessage("Редак."),
         "btn_open_title": MessageLookupByLibrary.simpleMessage("Открыть"),

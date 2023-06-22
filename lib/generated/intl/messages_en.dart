@@ -27,7 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "alert_dialog_content": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete this counter?"),
         "alert_dialog_title": MessageLookupByLibrary.simpleMessage("Confirm"),
-        "appbar_title": MessageLookupByLibrary.simpleMessage("Counters"),
+        "appbar_title":
+            MessageLookupByLibrary.simpleMessage("Stateful Click Counters"),
         "btn_delete_title": MessageLookupByLibrary.simpleMessage("Delete"),
         "btn_edit_title": MessageLookupByLibrary.simpleMessage("Edit"),
         "btn_open_title": MessageLookupByLibrary.simpleMessage("Open"),

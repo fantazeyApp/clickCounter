@@ -1,6 +1,6 @@
 {
     "main_title":"Click Counter App",
-    "appbar_title": "Counters",
+    "appbar_title": "Stateful Click Counters",
     "isedit_save": "Save",
     "isedit_add": "Add",
     "btn_open_title": "Open",

@@ -1,6 +1,7 @@
 import 'package:click_counter/core/constants/ikey.dart';
 import 'package:click_counter/model/hive_register.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -13,17 +14,15 @@ import 'model/run_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   await Hive.initFlutter();
   late AppRegisterHive appHive;
   late AppOpenBoxHive appBox;
   appHive = AppRegisterHive(const CounterRegisterFactory());
   appHive.registerHive();
-
   appBox = AppOpenBoxHive(const CounterOpenBoxFactory());
   await appBox.makeOpenBox();
   await Hive.openBox(IKey.settingKey);
-  /* Hive.deleteBoxFromDisk(IKey.counterKey);
-  Hive.deleteBoxFromDisk(IKey.settingKey); */
   late MainSetup appFactory;
   appFactory = MainSetup(const AppFactory());
   final app = appFactory.makeApp();

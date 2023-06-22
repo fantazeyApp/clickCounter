@@ -1,12 +1,13 @@
 name: click_counter
 description: Click counter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 1.0.2+3 #22.06.23
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  path: any
   flutter:
     sdk: flutter
 
@@ -16,18 +17,16 @@ dependencies:
   intl: ^0.18.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  share_plus: ^6.3.1
   url_launcher: ^6.1.5
-  #audioplayers: ^4.0.1
   soundpool: ^2.3.0
   animated_flip_counter: ^0.2.5
-  #flutter_svg: ^2.0.5
   wakelock: ^0.6.2
   equatable: ^2.0.5
   google_fonts: ^4.0.0
+  google_mobile_ads: ^3.0.0
   flutter_localizations:
     sdk: flutter
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -41,13 +40,11 @@ flutter_native_splash:
   color: "#FFFFFF"
   image: assets/images/playstore.png
   android: true
-  #android_gravity: fill
 
 flutter:
 
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
     - assets/sounds/

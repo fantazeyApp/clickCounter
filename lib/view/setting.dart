@@ -5,13 +5,21 @@ import 'package:click_counter/view/volume_switch.dart';
 import 'package:flutter/material.dart';
 
 import '../generated/l10n.dart';
+import '../viewmodel/custom_admob.dart';
 
-class SettingPage extends StatelessWidget {
+class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
+
+  @override
+  State<SettingPage> createState() => _SettingPageState();
+}
+
+class _SettingPageState extends State<SettingPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar:const CustomAdMob(),
       appBar: AppBar(
         title: Text(S.of(context).settingpage_appbar_title),
       ),

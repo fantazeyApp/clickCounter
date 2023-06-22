@@ -4,6 +4,7 @@ import 'package:click_counter/model/counter_hive_model.dart';
 import 'package:click_counter/view/widget/appbar_widget.dart';
 import 'package:click_counter/view/widget/buildcontent.dart';
 import 'package:click_counter/view/widget/drawer_widget.dart';
+import 'package:click_counter/viewmodel/custom_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -17,6 +18,7 @@ class CounterList extends StatefulWidget {
 }
 
 class _CounterListState extends State<CounterList> {
+
   @override
   void dispose() {
     Hive.close();
@@ -38,6 +40,7 @@ class _CounterListState extends State<CounterList> {
     }
 
     return Scaffold(
+      bottomNavigationBar:const CustomAdMob(),
       backgroundColor: const Color(0xFF00B0F0),
       resizeToAvoidBottomInset: false,
       appBar: const AppbarWidget(),

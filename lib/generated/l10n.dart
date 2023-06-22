@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `Counters`
+  /// `Stateful Click Counters`
   String get appbar_title {
     return Intl.message(
-      'Counters',
+      'Stateful Click Counters',
       name: 'appbar_title',
       desc: '',
       args: [],
@@ -577,6 +577,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'es', countryCode: 'ES'),
+      Locale.fromSubtags(languageCode: 'id'),
+      Locale.fromSubtags(languageCode: 'ko', countryCode: 'KR'),
       Locale.fromSubtags(languageCode: 'ru', countryCode: 'RU'),
     ];
   }

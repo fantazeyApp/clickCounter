@@ -2,6 +2,7 @@ import 'package:animated_flip_counter/animated_flip_counter.dart';
 import 'package:click_counter/core/constants/ikey.dart';
 import 'package:click_counter/core/sizedbox.dart';
 import 'package:click_counter/logic/sound_service.dart';
+import 'package:click_counter/viewmodel/custom_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
@@ -104,6 +105,7 @@ class _CounterViewState extends State<CounterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CustomAdMob(),
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF00B0F0),
       appBar: AppBar(
